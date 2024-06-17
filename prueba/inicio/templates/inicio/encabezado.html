@@ -6,8 +6,7 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 
 {%block titulo%}Ejemplo {%endblock%}
-
-
+<!--Holaaaaaaaaaaa-->
 {%load static%}
 <link href="{% static 'inicio/css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
 <link href="{% static 'inicio/css/londinium-theme.css'%}" rel="stylesheet" type="text/css">
@@ -49,7 +48,17 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/application.js"></script>
 
+
+<!--<style>
+    .sidebar {
+        background-color: #0000FF; /* Cambiado de gris a azul */
+    }
+</style>-->
+
 </head>
+
+
+
 
 <body>
 
@@ -60,6 +69,30 @@
 
 		<!-- Barra de menú -->
 		<div class="sidebar">
+						
+
+
+			<!--Imagen de usuario-->
+		<div class="user-menu dropdown">
+			<a href="#">
+
+				<div class="user-info">
+
+					<img src="{%block imagen%}{%endblock%}">
+					{%block nombre%}{%endblock%} 
+					{%block descripcion%}{%endblock%}
+				</div>
+			</a>
+		</div>
+		
+
+
+		
+		
+
+
+
+
 			<div class="sidebar-content">
 				<!-- Menú de navegación -->
 				<ul class="navigation">
@@ -74,9 +107,41 @@
 
 
 	</div>
-	<!---->
+	<!-- Contenido Principal-->
+	<div class="page-content">
+
+
+<!--Bloque para agregar inforcion del encabezado -->
+{%block encabezado%}{%endblock%}
+		
+<!--Bloque para agregar la barra de navegacion -->	
+{%block barra-navegacion%}
+<!--Barra de navegacion-->
+<div class="breadcrumb-line">
+	<ul class="breadcrumb">
+					<a href="{%url 'principal'%}">
+					{%if request.path == '/' %}
+							Principal
+					{%else%}
+						Principal{{request.path}}
+					{% endif %}
+				</a>
+			
+	</ul>
+</div>
+{%endblock%}
+
+
 {%block contenido%}<!--Template tag-->
 <!--block sirve para indicar que colocaremos un bloque de contenido atraves de una muestra valiable content-->
 {% endblock %}
+			
+			
+			</div>
+		<!--/Contenido principal-->	
+	</div>
+
+	
 </body>
 </html>
+

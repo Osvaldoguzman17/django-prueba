@@ -1,23 +1,34 @@
-
 {% extends "inicio/encabezado.html" %}
-
+<!--Titulo-->
 {%block titulo%}Formulario {%endblock%}
+<!--Nombre de la pagina-->
+
+{%block nombre%}Formulario{%endblock%}
+<!--Subtitulo o descripcion-->
+
+{%block descripcion%}<span>CM</span>{%endblock%}
+
+
+{% block imagen%}
+	{%load static%}
+	{%static 'inicio/images/registrar.png'%}
+{% endblock%}
+
+<!--El texto del Encabezado, fuera del contenido para separar la barra de navegaion -->
+{%block encabezado%}
+ <!--Encabezdo -->
+<div class="page-header">
+   <div class="page-title">
+       <h3>Registro
+       <small>Ingresa tu informacion</small></h3>
+   </div>
+</div>
+{% endblock%}
+
 {%block contenido%}
-<!-- Contenido Principal-->
-<div class="page-content">
 
 
-    <!--Encabezdo -->
-    <div class="page-header">
-        <div class="page-title">
-            <h3>Contactanos
-            <small>Ingresa tus dudas</small></h3>
-        </div>
 
-        
-        
-    </div>
-    <!-- /Encabezado-->
 
     <!-- Formulario -->
     <form class="form-horizontal" action="#" role="form">
@@ -25,18 +36,30 @@
             <div class="panel-body">
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label text-right">Nombre:</label>
+                    <label class="col-sm-2 control-label text-right">Matricula:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control">
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label text-right">Mensaje:</label>
+                    <label class="col-sm-2 control-label text-right">Nombre:</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" rows="5"></textarea>
+                        <input type="text" class="form-control">
                     </div>
                 </div>
+               
+
+                    <label p>Carrrera:</label>
+                    <select name="carrera">
+                        <option>ING. DGS</option>
+                        <option>ING. EVND</option>
+                    </select>       
+                </p>
+
+                <label>Turno:</label>
+                <input type="radio" name="turno" value="matricula">Matutino
+                <input type="radio" name="turno" value="vespertino">Vespertino
 
                 
                 
@@ -47,21 +70,4 @@
             </div>
         </div>
     </form>
-<!-- Fin del Formulario -->
-</div>
-<!-- /Contenido Principal-->
-
-<!--
-<h2> Registrar </h2>
-    <p>Matricula:<input type="text" name="Matricula"></p>
-    <p>Nombre:<input type="text" name="nombre"></p>
-    <p>Carrrera:
-        <select name="carrera">
-            <option>ING. DGS</option>
-            <option>ING. EVND</option>
-        </select>
-    </p>
-    <input type="radio" name="turno" value="matricula">Matutino
-    <input type="radio" name="turno" value="vespertino">Vespertino
-    <p><input type="Button" name="Enviar"></p>-->
-    {%endblock%}
+ {%endblock%}
